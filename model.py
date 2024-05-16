@@ -48,12 +48,12 @@ def readcsv(target, fealen=32):
             if i==0:
                 file = '/dc.csv'
                 path = target + file
-                featemp = pd.read_csv(path, header=None).as_matrix()
+                featemp = pd.read_csv(path, header=None).values
                 feature.append(featemp)
             else:
                 file = '/ac'+str(i)+'.csv'
                 path = target + file
-                featemp = pd.read_csv(path, header=None).as_matrix()
+                featemp = pd.read_csv(path, header=None).values
                 feature.append(featemp)          
     return np.rollaxis(np.asarray(feature), 0, 3)[:,:,0:fealen], label
 '''
